@@ -1,0 +1,15 @@
+[project]
+name = "parallel-python-tracker"
+version = "0.1.0"
+description = "Package compatibility tracker: Python 3.13 free-threading and subinterpreters"
+readme = "README.md"
+requires-python = ">=3.12"  # Ironic, isn't it? But it seems that Prefect doesn't support 3.13 yet.
+dependencies = [
+    "jinja2>=3.1.4",
+    "prefect>=3.0.8",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.6.9",
+]
