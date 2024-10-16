@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallel Python Tracker: package compatibility with Python 3.13 free-threading and subinterpreters</title>
-    <link rel="stylesheet" href="https://python.tips/2023/theme/css/main.css" />
+    <link rel="stylesheet" href="https://2023.python.tips/theme/css/main.css" />
     <style>
         section {
             padding-top: 2rem !important;
@@ -33,17 +33,17 @@
             background-color: rgb(218, 250, 207);
         }
 
-        .warning {
-            border: 1px solid #fee148;
-            border-left-width: 6px;
+        .note {
+            background: rgb(250, 250, 250);
+            border: 1px solid #ccc;
             padding: 1em;
             border-radius: 7px;
         }
 
-        a.muted:not(:hover) {
-            color: inherit;
-            text-decoration: none;
-            border: none;
+        .warning {
+            border: 1px solid #fee148;
+            padding: 1em;
+            border-radius: 7px;
         }
 
         .github-corner:hover .octo-arm{animation:octocat-wave 800ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
@@ -68,7 +68,14 @@
     </header>
 
     <section>
-        <h1>Package compatibility tracker:<br>Python&nbsp;3.13 free-threading and subinterpreters</h1>
+        <header>
+            <h1>Package compatibility tracker:<br>Python&nbsp;3.13 free-threading and subinterpreters</h1>
+            <p class="note">
+                🇨🇭
+                Built for my talk ‘Parallel Python at last? Subinterpreters &amp; free-threading in practice’.
+                <a href="/talk/">See the slides and more details here.</a>
+            </p>
+        </header>
 
         <p>
             The following table summarises <strong>very basic compatibility</strong> of popular Python packages with
