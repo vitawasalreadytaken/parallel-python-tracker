@@ -181,7 +181,7 @@ packages = [
     { name = "pycodestyle" },
     { name = "azure-identity" },
     { name = "fonttools" },
-    { name = "ruamel-yaml-clib" },
+    { name = "ruamel-yaml-clib", importable_name = "ruamel.yaml.clib" },
     { name = "cachecontrol" },
     { name = "marshmallow" },
     { name = "alembic" },
