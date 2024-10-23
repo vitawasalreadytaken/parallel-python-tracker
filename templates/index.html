@@ -148,7 +148,17 @@
                 <th>Imports in a subinterpreter</th>
             </tr>
             <tbody>
-            {% for package, pkg_reports in reports.items() %}
+                <tr>
+                    <td colspan="3">
+                        Total
+                        ({{ reports|length }} packages)
+                    </td>
+                    <td class="result">{{ success_percentages["freethreading"]["installation"]|round|int }}%</td>
+                    <td class="result">{{ success_percentages["freethreading"]["test"]|round|int }}%</td>
+                    <td class="result border">{{ success_percentages["subinterpreters"]["installation"]|round|int }}%</td>
+                    <td class="result">{{ success_percentages["subinterpreters"]["test"]|round|int }}%</td>
+                </tr>
+                {% for package, pkg_reports in reports.items() %}
                 <tr>
                     <td>
                         <a href="https://pypi.org/project/{{ package }}/" class="muted">
@@ -162,7 +172,7 @@
                     {{ result(pkg_reports["subinterpreters"]["installation"]["success"], 'border') }}
                     {{ result(pkg_reports["subinterpreters"]["test"]["success"]) }}
                 </tr>
-            {% endfor %}
+                {% endfor %}
             </tbody>
         </thead>
         </table>

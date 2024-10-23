@@ -40,9 +40,21 @@ def run_test(test_type: str, package_name: str) -> dict[str, Any]:
 
 @prefect.task
 def build_report_table(reports: dict[str, dict[str, Any]]) -> str:
+    success_percentages = {
+        "freethreading": {"installation": 0.0, "test": 0.0},
+        "subinterpreters": {"installation": 0.0, "test": 0.0},
+    }
+    for pkg_reports in reports.values():
+        for test_type, report in pkg_reports.items():
+            for key in success_percentages[test_type]:
+                success_percentages[test_type][key] += float(bool(report[key]["success"]))
+    for test_type in success_percentages:
+        for key in success_percentages[test_type]:
+            success_percentages[test_type][key] *= 100 / len(reports)
+
     env = jinja2.Environment(loader=jinja2.FileSystemLoader("templates"))
     template = env.get_template("index.html")
-    return template.render(reports=reports)
+    return template.render(reports=reports, success_percentages=success_percentages)
 
 
 @prefect.flow(
