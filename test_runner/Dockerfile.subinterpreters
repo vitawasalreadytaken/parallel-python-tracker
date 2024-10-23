@@ -4,7 +4,7 @@ FROM python:${PYTHON_VERSION}
 COPY requirements.txt ./
 RUN python -m pip install -r requirements.txt
 
-COPY runner.py test_subinterpreters.py ./
+COPY *.py ./
 COPY specific_tests/ ./specific_tests/
 COPY tested_packages.toml ./
 

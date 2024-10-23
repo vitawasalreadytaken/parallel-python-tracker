@@ -9,6 +9,8 @@ from typing import Any
 
 import importlib_metadata
 
+import report_types
+
 
 def install_package(tested_package_name: str) -> dict[str, Any]:
     ret = subprocess.run(
@@ -37,7 +39,7 @@ def find_importable_module(package_name: str, packages_spec: list[dict[str, Any]
     for module, packages in importlib_metadata.packages_distributions().items():
         if package_name in map(normalize, packages):
             return module
-    raise ValueError("Package not found", package_name)
+    raise ValueError("Package not found", package_name, importlib_metadata.packages_distributions())
 
 
 if __name__ == "__main__":
@@ -54,12 +56,17 @@ if __name__ == "__main__":
     packages_spec = tomllib.loads(pathlib.Path("tested_packages.toml").read_text())["packages"]
 
     # Prepare the report
-    report = {
+    report: report_types.TestReport = {
         "start_time": datetime.datetime.now(tz=datetime.timezone.utc).isoformat(),
+        "end_time": None,
         "python_version": sys.version,
         "python_version_info": sys.version_info,
         "test_type": test_type,
         "tested_package_name": tested_package_name,
+        # These will only be known if the installation is successful
+        "tested_package_name_importable": None,
+        "package_version": None,
+        # Test results
         "installation": {"success": None},
         "test": {"success": None},
     }
