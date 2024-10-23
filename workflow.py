@@ -24,7 +24,7 @@ def run_test(test_type: str, package_name: str) -> dict[str, Any]:
     """Run a test in a Docker container and return the report as a parsed JSON."""
     image = f"test_runner_{test_type}"
     ret = subprocess.run(
-        ["docker", "run", "-t", "--rm", image, test_type, package_name],
+        ["docker", "run", "-t", "--rm", image, package_name],
         capture_output=True,
         text=True,
     )
