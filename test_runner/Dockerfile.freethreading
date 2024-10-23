@@ -8,6 +8,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+ENV PATH=/root/.cargo/bin:$PATH
+
 # pyenv setup from https://gist.github.com/jprjr/7667947?permalink_comment_id=3684823#gistcomment-3684823
 ENV PYENV_ROOT=/root/.pyenv
 ENV PATH=$PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
