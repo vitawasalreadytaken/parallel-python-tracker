@@ -13,3 +13,6 @@ dependencies = [
 dev-dependencies = [
     "ruff>=0.6.9",
 ]
+
+[tool.prefect]
+home = "./.prefect"

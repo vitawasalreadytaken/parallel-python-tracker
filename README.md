@@ -38,11 +38,11 @@ If you're not familiar with Prefect, you might need to run:
 
 ```
 prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api
-uv run prefect server start
+uv run prefect server start  # or 'make server'
 ```
 
 And then run the workflow with:
 
 ```
-uv run workflow.py
+uv run workflow.py  # or 'make run'
 ```

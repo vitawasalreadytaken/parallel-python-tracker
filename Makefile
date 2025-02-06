@@ -4,3 +4,9 @@ build:
 
 clean:
 	rm -r output/*
+
+server:
+	uv run prefect server start
+
+run:
+	uv run workflow.py
