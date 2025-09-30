@@ -273,7 +273,7 @@ packages = [
     { name = "websockets" },
     { name = "pkgutil-resolve-name" },
     { name = "debugpy" },
-    { name = "apache-airflow" },
+    { name = "apache-airflow", importable_name = "airflow" },
     { name = "smart-open" },
     { name = "asttokens" },
     { name = "shapely" },
